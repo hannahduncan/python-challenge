@@ -18,7 +18,11 @@ minMonth = ""
 with open(cvspath) as csvFile:
     csvReader = csv.reader(csvFile,delimiter=",")
     
-    next(csvReader, None)
+    firstRow = next(csvReader, None)
+    # monthCount = monthCount + 1
+    # net = net + int(firstRow[1])
+    # prevProfit = int(firstRow[1])
+    
     for row in csvReader:
         monthCount = monthCount + 1
         net = net + int(row[1])
