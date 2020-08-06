@@ -10,7 +10,7 @@ winner = 0
 voteList = []
 candidatesList = []
 
-csvPath = "election_data.csv"
+csvPath = "Resources/election_data.csv"
 
 with open(csvPath) as csvFile:
     csvReader = csv.reader(csvFile, delimiter=",")
@@ -43,7 +43,7 @@ print("---------------------------------\n")
 print(f"Winner: {winner}\n")
 print("---------------------------------\n") 
 
-pyPollPath = "analysis.txt"
+pyPollPath = "Analysis/analysis.txt"
 with open(pyPollPath,'w') as pyPoll:
     pyPoll.write("Election Results\n")
     pyPoll.write("---------------------------------\n")

@@ -1,8 +1,7 @@
 import os
 import csv
 
-cvspath = os.path.join("bank.csv")
-
+cvspath = os.path.join("Resources/bank.csv")
 
 monthCount =0
 net = 0
@@ -26,6 +25,11 @@ with open(cvspath) as csvFile:
         currentProfit = int(row[1])
         
         changeProfit = currentProfit - prevProfit
+        prevProfit = int(row[1])
+        changeArray=changeArray+[changeProfit]
+        #changeArray.append(changeProfit)
+
+        print(changeArray)
 
         if (changeProfit > maxChange):
             maxChange = changeProfit
@@ -34,12 +38,13 @@ with open(cvspath) as csvFile:
             minChange = changeProfit
             minMonth = row[0]
         
-        prevProfit = int(row[1])
-        changeArray.append(changeProfit)
+        
+
         #totalChange = totalChange + changeProfit
   
 #avg = totalChange/monthCount
 avg = sum(changeArray)/len(changeArray)
+print(avg)
 
 print("-------------------------------\n")
 print(f"Total months: {monthCount}\n")
@@ -49,7 +54,7 @@ print(f"Greatest Increase in Profits: {maxMonth} {maxChange}\n")
 print(f"Greatest Decrease in Profits: {minMonth} {minChange}\n")
 
 
-pyBankPath = "analysis.txt"
+pyBankPath = "Analysis/analysis.txt"
 with open(pyBankPath,'w') as pyBank:
     pyBank.write("Financial Analysis\n")
     pyBank.write("-------------------------------\n")
@@ -58,3 +63,7 @@ with open(pyBankPath,'w') as pyBank:
     pyBank.write(f"Average Change: {avg}\n")
     pyBank.write(f"Greatest Increase in Profits: {maxMonth} {maxChange}\n")
     pyBank.write(f"Greatest Decrease in Profits: {minMonth} {minChange}\n")
+
+#HW Questions:
+#   1. Correct formula for average change
+#   2. What does it mean to "store" header row?
