@@ -8,12 +8,12 @@ name = ""
 voteCount = 0
 maxVoteCount = 0
 votePercent = 0 
-winner = 0 
+winner = ""
 voteList = []
 candidatesList = []
 
 #Path for CSV 
-csvPath = "Resources/election_data.csv"
+csvPath = os.path.join("Resources/election_data.csv")
 
 #Open and read election data
 with open(csvPath) as csvFile:
@@ -21,13 +21,15 @@ with open(csvPath) as csvFile:
 
     #Store header
     next(csvReader,None)
-    #Loop through CSV to compute election analytics
+    #Loop through CSV to calculate total votes
     for row in csvReader:
         totalVotes = totalVotes + 1
         name = row[2]
 
+        #Add each person voted for to voteList
         voteList.append(name)
 
+        #Add new candidates to candidatesList
         if name not in candidatesList:
             candidatesList.append(name)
 
@@ -37,11 +39,13 @@ print("---------------------------------\n")
 print(f"Total Votes: {totalVotes}\n")
 print("---------------------------------\n")
 
+#Determine vote counts and percent for each candidate in candidatesList
 for value in candidatesList:
     voteCount = voteList.count(value)
     votePercent = voteCount/totalVotes * 100
     print(f"{value}: {votePercent}% ({voteCount})\n")
 
+    #Determine winner
     if voteCount > maxVoteCount:
         maxVoteCount = voteCount
         winner = value
@@ -49,6 +53,7 @@ for value in candidatesList:
 print("---------------------------------\n")        
 print(f"Winner: {winner}\n")
 print("---------------------------------\n") 
+
 
 #Open and write results to text file
 pyPollPath = "Analysis/analysis.txt"
