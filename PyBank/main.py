@@ -50,12 +50,13 @@ with open(cvspath) as csvFile:
 avg = sum(changeArray)/len(changeArray)
 
 #Print results to terminal
+print("Financial Analysis\n")
 print("-------------------------------\n")
 print(f"Total months: {monthCount}\n")
-print(f"Total: {net}\n")
-print(f"Average Change: {avg}\n")
-print(f"Greatest Increase in Profits: {maxMonth} {maxChange}\n")
-print(f"Greatest Decrease in Profits: {minMonth} {minChange}\n")
+print(f"Total: ${net}\n")
+print(f"Average Change: ${avg}\n")
+print(f"Greatest Increase in Profits: {maxMonth} (${maxChange})\n")
+print(f"Greatest Decrease in Profits: {minMonth} (${minChange})\n")
 
 #Open and write results to text file
 pyBankPath = "Analysis/analysis.txt"
@@ -63,10 +64,10 @@ with open(pyBankPath,'w') as pyBank:
     pyBank.write("Financial Analysis\n")
     pyBank.write("-------------------------------\n")
     pyBank.write(f"Total months: {monthCount}\n")
-    pyBank.write(f"Total: {net}\n")
-    pyBank.write(f"Average Change: {avg}\n")
-    pyBank.write(f"Greatest Increase in Profits: {maxMonth} {maxChange}\n")
-    pyBank.write(f"Greatest Decrease in Profits: {minMonth} {minChange}\n")
+    pyBank.write(f"Total: ${net}\n")
+    pyBank.write(f"Average Change: ${avg}\n")
+    pyBank.write(f"Greatest Increase in Profits: {maxMonth} (${maxChange})\n")
+    pyBank.write(f"Greatest Decrease in Profits: {minMonth} (${minChange})\n")
 
 #HW Questions:
 #   2. What does it mean to "store" header row?
