@@ -1,6 +1,8 @@
+#Import Dependencies
 import os
 import csv 
 
+#Initialize variables
 totalVotes = 0
 name = ""
 voteCount = 0
@@ -10,12 +12,16 @@ winner = 0
 voteList = []
 candidatesList = []
 
+#Path for CSV 
 csvPath = "Resources/election_data.csv"
 
+#Open and read election data
 with open(csvPath) as csvFile:
     csvReader = csv.reader(csvFile, delimiter=",")
 
+    #Store header
     next(csvReader,None)
+    #Loop through CSV to compute election analytics
     for row in csvReader:
         totalVotes = totalVotes + 1
         name = row[2]
@@ -25,6 +31,7 @@ with open(csvPath) as csvFile:
         if name not in candidatesList:
             candidatesList.append(name)
 
+#Print results to terminal
 print("Election Results\n")
 print("---------------------------------\n")
 print(f"Total Votes: {totalVotes}\n")
@@ -43,6 +50,7 @@ print("---------------------------------\n")
 print(f"Winner: {winner}\n")
 print("---------------------------------\n") 
 
+#Open and write results to text file
 pyPollPath = "Analysis/analysis.txt"
 with open(pyPollPath,'w') as pyPoll:
     pyPoll.write("Election Results\n")
