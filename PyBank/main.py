@@ -13,7 +13,7 @@ changeProfit = 0
 maxChange = 0
 minChange =0 
 changeArray = []
-header = ""
+header = []
 firstRow = ""
 maxMonth = ""
 minMonth = ""
@@ -69,5 +69,3 @@ with open(pyBankPath,'w') as pyBank:
     pyBank.write(f"Greatest Increase in Profits: {maxMonth} (${maxChange})\n")
     pyBank.write(f"Greatest Decrease in Profits: {minMonth} (${minChange})\n")
 
-#HW Questions:
-#   2. What does it mean to "store" header row?

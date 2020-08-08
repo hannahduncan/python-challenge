@@ -11,6 +11,7 @@ votePercent = 0
 winner = ""
 voteList = []
 candidatesList = []
+header = []
 
 #Path for CSV 
 csvPath = os.path.join("Resources/election_data.csv")
@@ -20,7 +21,7 @@ with open(csvPath) as csvFile:
     csvReader = csv.reader(csvFile, delimiter=",")
 
     #Store header
-    next(csvReader,None)
+    header = next(csvReader,None)
     #Loop through CSV to calculate total votes
     for row in csvReader:
         totalVotes = totalVotes + 1
