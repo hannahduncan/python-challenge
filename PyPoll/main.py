@@ -43,7 +43,7 @@ print("---------------------------------\n")
 #Determine vote counts and percent for each candidate in candidatesList
 for value in candidatesList:
     voteCount = voteList.count(value)
-    votePercent = voteCount/totalVotes * 100
+    votePercent = round(voteCount/totalVotes * 100,3)
     print(f"{value}: {votePercent}% ({voteCount})\n")
 
     #Determine winner
@@ -66,7 +66,7 @@ with open(pyPollPath,'w') as pyPoll:
 
     for value in candidatesList:
         voteCount = voteList.count(value)
-        votePercent = voteCount/totalVotes * 100
+        votePercent = round(voteCount/totalVotes * 100,3)
         pyPoll.write(f"{value}: {votePercent}% ({voteCount})\n")
 
         if voteCount > maxVoteCount:

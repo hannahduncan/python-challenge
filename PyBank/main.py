@@ -47,7 +47,7 @@ with open(cvspath) as csvFile:
             minMonth = row[0]
 
 #Compute average change
-avg = sum(changeArray)/len(changeArray)
+avg = round(sum(changeArray)/len(changeArray),2)
 
 #Print results to terminal
 print("Financial Analysis\n")
